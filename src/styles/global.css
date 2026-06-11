@@ -3835,3 +3835,109 @@ html[data-win-titlebar][data-maximized] .main {
 .episode-check-item:hover {
     color: var(--text) !important;
 }
+
+/* ── Mobile Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .sidebar {
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 60px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        padding: 0 10px;
+        border-right: none;
+        border-top: 1px solid var(--border);
+        z-index: 9999;
+    }
+    .sidebar-logo,
+    .sidebar-sep,
+    .sidebar-saved {
+        display: none;
+    }
+    .sidebar-bottom {
+        margin-top: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .sidebar-btn {
+        width: 40px;
+        height: 40px;
+        margin-top: 0 !important;
+    }
+    .sidebar-btn .tooltip {
+        display: none !important;
+    }
+    .main {
+        margin-left: 0;
+        height: calc(100vh - 60px);
+        padding-bottom: 20px;
+    }
+    .hero {
+        height: 50vh;
+        min-height: 350px;
+    }
+    .hero-content {
+        padding: 20px;
+        max-width: 100%;
+    }
+    .hero-title {
+        font-size: 32px;
+    }
+    .hero-overview {
+        -webkit-line-clamp: 2;
+        font-size: 13px;
+    }
+    .section {
+        padding: 16px;
+    }
+    .section-title {
+        font-size: 20px;
+    }
+    .cards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        gap: 12px;
+    }
+    .scroll-row .card {
+        width: 110px;
+    }
+    .detail-hero {
+        height: auto;
+        min-height: 50vh;
+    }
+    .detail-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 24px 16px;
+        gap: 20px;
+        text-align: center;
+    }
+    .detail-poster {
+        width: 140px;
+    }
+    .detail-title {
+        font-size: 32px;
+    }
+    .detail-meta, .genres, .detail-actions {
+        justify-content: center;
+    }
+    .search-box {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        border-radius: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    .search-results {
+        max-height: none;
+        flex: 1;
+    }
+    .modal-overlay {
+        padding-top: 0;
+    }
+}
