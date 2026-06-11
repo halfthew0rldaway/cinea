@@ -1022,6 +1022,10 @@ body.no-anim *::after {
     display: none !important;
 }
 
+.player-wrap--fullscreen::before {
+    display: none !important;
+}
+
 .player-wrap::before {
     content: "";
     display: block;
@@ -3921,10 +3925,15 @@ html[data-win-titlebar][data-maximized] .main {
         width: 140px;
     }
     .detail-title {
-        font-size: 32px;
+        font-size: 28px;
+        word-break: break-word;
     }
     .detail-meta, .genres, .detail-actions {
         justify-content: center;
+    }
+    .detail-overview {
+        max-width: 100%;
+        word-break: break-word;
     }
     .search-box {
         width: 100%;
@@ -3940,5 +3949,13 @@ html[data-win-titlebar][data-maximized] .main {
     }
     .modal-overlay {
         padding-top: 0;
+    }
+    .player-overlay-group {
+        flex-wrap: wrap;
+        max-width: calc(100vw - 24px);
+    }
+    .source-dropdown {
+        max-width: calc(100vw - 24px);
+        box-sizing: border-box;
     }
 }
