@@ -1,12 +1,16 @@
 export default async function handler(req, res) {
-  const { path } = req.query;
+  const { path, ...queryParams } = req.query;
 
   if (!path) {
     return res.status(400).json({ error: "Missing path parameter" });
   }
 
-  const url = `https://api.themoviedb.org/3${path}`;
-  const apiKey = process.env.TMDB_API_KEY;
+  const searchParams = new URLSearchParams(queryParams);
+  const queryString = searchParams.toString();
+  const url = `https://api.themoviedb.org/3${path}${queryString ? `?${queryString}` : ""}`;
+  
+  // Fallback to embedded key so it works out-of-the-box on Vercel
+  const apiKey = process.env.TMDB_API_KEY || "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmN2ZiZWFkMDg1MjcxMGQxZGIzOTY1NjEwZDMwOTEzNSIsIm5iZiI6MTc3MDQwNjA0OS44MjMsInN1YiI6IjY5ODY0MGExZWU0MGM0ZmI4YzY5MTgzOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.yxLuQ_Kt7U689x20Y8BEXKrFcTlUowczJESY4g8g8hg";
 
   try {
     const response = await fetch(url, {

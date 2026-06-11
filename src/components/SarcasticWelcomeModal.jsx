@@ -159,7 +159,7 @@ export default function SarcasticWelcomeModal() {
               This project crawls the deepest corners of the internet to scrape media links, compiling them into a surprisingly functional catalog. It then wraps everything in a UI so beautiful you'll completely forget you aren't paying a monthly subscription.
             </p>
             <p className="sw-text sw-text-dim" style={{ fontSize: "16px" }}>
-              Say goodbye to paying for 15 different streaming platforms. Say hello to pure, unfiltered entertainment. <span className="sw-wink">😉</span>
+              Say goodbye to paying for 15 different streaming platforms. Say hello to pure, unfiltered entertainment.
             </p>
           </div>
 
