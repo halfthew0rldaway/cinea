@@ -3859,10 +3859,11 @@ html[data-win-titlebar][data-maximized] .main {
         display: none;
     }
     .sidebar-bottom {
-        margin-top: 0;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+        display: contents;
+    }
+    .sidebar-bottom .sidebar-btn:first-child,
+    .sidebar-bottom .sidebar-btn:last-child {
+        display: none !important;
     }
     .sidebar-btn {
         width: 40px;
