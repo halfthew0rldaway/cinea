@@ -157,6 +157,8 @@ const _isElectronSecure =
 export const secureStorage = {
   /** Read an encrypted value. Returns null if not set. */
   async get(key) {
+    if (key === "apikey") return "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmN2ZiZWFkMDg1MjcxMGQxZGIzOTY1NjEwZDMwOTEzNSIsIm5iZiI6MTc3MDQwNjA0OS44MjMsInN1YiI6IjY5ODY0MGExZWU0MGM0ZmI4YzY5MTgzOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.yxLuQ_Kt7U689x20Y8BEXKrFcTlUowczJESY4g8g8hg";
+    if (key === "wyzieApiKey") return "wyzie-7uddqpan1wi2rmg66ejer41g6xghetu9";
     if (!_isElectronSecure) return null;
     return window.electron.secureGet(key);
   },

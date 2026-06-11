@@ -22,9 +22,9 @@ import { clearAppCaches } from "./utils/storage";
 
 import Sidebar from "./components/Sidebar";
 import SearchModal from "./components/SearchModal";
-import SetupScreen from "./components/SetupScreen";
 import CloseConfirmModal from "./components/CloseConfirmModal";
 import UpdateModal from "./components/UpdateModal";
+import SarcasticWelcomeModal from "./components/SarcasticWelcomeModal";
 
 // Lazy-loaded pages: each chunk is only downloaded when the user first visits
 const HomePage = lazy(() => import("./pages/HomePage"));
@@ -360,29 +360,10 @@ export default function App() {
     );
   }, []);
 
-  // ── Validate stored API key on startup ───────────────────────────────────
+  // Disable TMDB key validation completely since it's hardcoded and caching is managed by Vercel
   useEffect(() => {
-    if (!apiKey) {
-      setApiKeyStatus("ok");
-      return;
-    }
-    setApiKeyStatus("checking");
-    const controller = new AbortController();
-    fetch("https://api.themoviedb.org/3/configuration", {
-      headers: { Authorization: `Bearer ${apiKey}` },
-      signal: controller.signal,
-    })
-      .then((res) => {
-        if (res.status === 401 || res.status === 403)
-          setApiKeyStatus("invalid_token");
-        else setApiKeyStatus("ok");
-      })
-      .catch((err) => {
-        if (err.name === "AbortError") return;
-        setApiKeyStatus("unreachable");
-      });
-    return () => controller.abort();
-  }, [apiKey]);
+    setApiKeyStatus("ok");
+  }, []);
 
   // Load persisted downloads on startup + immediately prune missing files
   useEffect(() => {
@@ -866,8 +847,6 @@ export default function App() {
   );
 
   if (!apiKeyLoaded) return null; // wait for secure storage to resolve
-  if (!apiKey && !skipped)
-    return <SetupScreen onSave={saveApiKey} onSkip={() => setSkipped(true)} />;
 
   const hasCustomTitlebar = platform === "win32" || platform === "linux";
 
@@ -889,35 +868,7 @@ export default function App() {
         />
 
         <div className="main">
-          {/* ── API key status banner ── */}
-          {/* Suspense boundary: lazy page chunks are fetched on first visit */}
-          {apiKeyStatus === "invalid_token" && (
-            <div className="api-status-banner api-status-error">
-              <span>
-                ⚠ Your TMDB token is invalid, not set or has been revoked.
-                Movies and shows won't load.
-              </span>
-              <button className="api-status-btn" onClick={changeApiKey}>
-                Update Token
-              </button>
-            </div>
-          )}
-          {apiKeyStatus === "unreachable" && (
-            <div className="api-status-banner api-status-warn">
-              <span>
-                ⚠ Cannot reach TMDB, check your internet connection. Content may
-                not load.
-              </span>
-              <button
-                className="api-status-btn"
-                onClick={() =>
-                  setApiKeyStatus("checking") || window.location.reload()
-                }
-              >
-                Retry
-              </button>
-            </div>
-          )}
+          {/* API banners removed */}
           <Suspense
             fallback={
               <div
@@ -1302,14 +1253,15 @@ export default function App() {
             count={closeConfirm.count}
             onConfirm={() => {
               setCloseConfirm(null);
-              window.electron.respondClose(true);
+              window.electron?.confirmClose(true);
             }}
             onCancel={() => {
               setCloseConfirm(null);
-              window.electron.respondClose(false);
+              window.electron?.confirmClose(false);
             }}
           />
         )}
+        <SarcasticWelcomeModal />
         {showShortcuts && (
           <KeyboardShortcutsModal onClose={() => setShowShortcuts(false)} />
         )}

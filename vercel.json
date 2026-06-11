@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/api/tmdb/:path*", "destination": "/api/tmdb?path=/:path*" },
+    { "source": "/api/wyzie/:path*", "destination": "/api/wyzie?path=/:path*" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

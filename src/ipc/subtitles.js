@@ -197,11 +197,7 @@ function register({ getDownloads, saveDownloads }) {
           if (mediaType === "tv" && episode != null)
             params.set("episode", String(episode));
 
-          if (wyzieApiKey) params.set("key", wyzieApiKey);
-
-          const baseUrl = wyzieApiKey
-            ? "https://sub.wyzie.io/search"
-            : "https://subs.wyzie.ru/search";
+          const baseUrl = "http://localhost:5174/api/wyzie/search"; // We use local server url if possible in dev
 
           const res = await fetchWithTimeout(`${baseUrl}?${params}`, {}, 12000);
           if (!res.ok) {

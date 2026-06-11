@@ -1943,43 +1943,82 @@ export default function TVPage({
                     </div>
                   </div>
                 )}
-                <webview
-                  ref={webviewRef}
-                  src={
-                    pipOpen
-                      ? "about:blank"
-                      : isAsync
-                        ? resolvedPlayerUrl || "about:blank"
-                        : getSourceUrl(
-                            playerSource,
-                            "tv",
-                            item.id,
-                            playerEp.season,
-                            playerEp.episode,
-                            {},
-                            playerAccentColor,
-                            playerSubLang,
-                          )
-                  }
-                  partition="persist:player"
-                  allowpopups="false"
-                  sandbox="allow-scripts allow-same-origin allow-forms"
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    width: "100%",
-                    height: "100%",
-                    border: "none",
-                    outline: "none",
-                    boxShadow: "none",
-                    background: "black",
-                    visibility:
-                      webviewLoading || (isAsync && !resolvedPlayerUrl)
-                        ? "hidden"
-                        : "visible",
-                  }}
-                  tabIndex={-1}
-                />
+                {window.electron ? (
+                  <webview
+                    ref={webviewRef}
+                    src={
+                      pipOpen
+                        ? "about:blank"
+                        : isAsync
+                          ? resolvedPlayerUrl || "about:blank"
+                          : getSourceUrl(
+                              playerSource,
+                              "tv",
+                              item.id,
+                              playerEp.season,
+                              playerEp.episode,
+                              {},
+                              playerAccentColor,
+                              playerSubLang,
+                            )
+                    }
+                    partition="persist:player"
+                    allowpopups="false"
+                    sandbox="allow-scripts allow-same-origin allow-forms"
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      width: "100%",
+                      height: "100%",
+                      border: "none",
+                      outline: "none",
+                      boxShadow: "none",
+                      background: "black",
+                      visibility:
+                        webviewLoading || (isAsync && !resolvedPlayerUrl)
+                          ? "hidden"
+                          : "visible",
+                    }}
+                    tabIndex={-1}
+                  />
+                ) : (
+                  <iframe
+                    ref={webviewRef}
+                    src={
+                      pipOpen
+                        ? "about:blank"
+                        : isAsync
+                          ? resolvedPlayerUrl || "about:blank"
+                          : getSourceUrl(
+                              playerSource,
+                              "tv",
+                              item.id,
+                              playerEp.season,
+                              playerEp.episode,
+                              {},
+                              playerAccentColor,
+                              playerSubLang,
+                            )
+                    }
+                    allowFullScreen
+                    onLoad={() => setWebviewLoading(false)}
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      width: "100%",
+                      height: "100%",
+                      border: "none",
+                      outline: "none",
+                      boxShadow: "none",
+                      background: "black",
+                      visibility:
+                        webviewLoading || (isAsync && !resolvedPlayerUrl)
+                          ? "hidden"
+                          : "visible",
+                    }}
+                    tabIndex={-1}
+                  />
+                )}
                 {/* Left-side overlay button group, flex row, no fixed px offsets */}
                 <div className="player-overlay-group">
                   <button

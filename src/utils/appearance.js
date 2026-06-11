@@ -5,11 +5,11 @@
 export const ACCENT_PRESETS = [
   {
     id: "red",
-    label: "Blue",
-    color: "#3b82f6",
-    color2: "#60a5fa",
-    dim: "rgba(59,130,246,0.15)",
-    glow: "0 0 30px rgba(59,130,246,0.3)",
+    label: "Red",
+    color: "#e50914",
+    color2: "#ff1a24",
+    dim: "rgba(229,9,20,0.15)",
+    glow: "0 0 30px rgba(229,9,20,0.3)",
   },
   {
     id: "blue",

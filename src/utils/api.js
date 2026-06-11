@@ -1,4 +1,4 @@
-const TMDB_BASE = "https://api.themoviedb.org/3";
+const TMDB_BASE = "/api/tmdb";
 const IMG_BASE = "https://image.tmdb.org/t/p";
 
 // ── TMDB metadata language ────────────────────────────────────────────────────
@@ -35,7 +35,7 @@ export const setApiErrorHandlers = (onAuth, onUnreachable) => {
 // Avoids redundant network calls when navigating back to the same show.
 // TTL: 5 minutes
 const _tmdbCache = new Map(); // key → { data, expiresAt }
-const TMDB_CACHE_TTL = 5 * 60 * 1000;
+const TMDB_CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours caching for Vercel
 
 /** Clears the in-memory TMDB cache and the persisted trending cache.
  * Calling this when the metadata language changes. */
@@ -79,9 +79,7 @@ export const tmdbFetch = async (path, apiKey) => {
 
   let res;
   try {
-    res = await fetch(`${TMDB_BASE}${localizedPath}`, {
-      headers: { Authorization: `Bearer ${apiKey}` },
-    });
+    res = await fetch(`${TMDB_BASE}${localizedPath}`);
   } catch {
     _releaseSlot();
     _onUnreachable?.();
