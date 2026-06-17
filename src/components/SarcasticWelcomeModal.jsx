@@ -13,16 +13,16 @@ import {
 import "../styles/sarcastic.css";
 
 const SARCASTIC_LINES = [
-  "We scraped the internet so you don't have to.",
-  "Totally legal. Definitely not suspicious at all.",
-  "Your parents would be so proud.",
-  "Netflix is typing…",
-  "Powered by vibes and stolen API keys.",
-  "No subscription required. No guilt either.",
-  "We monetize nothing. You're welcome.",
-  "This definitely won't get taken down.",
-  "Steal smarter, not harder.",
-  "You're welcome, broke bestie.",
+  "Bypassing the friction of modern subscriptions.",
+  "Sleek UI. Questionable data origins.",
+  "Because 15 streaming services is a mathematical error.",
+  "We built a better interface than the people you're paying.",
+  "Aggregating the web's finest artifacts, highly efficiently.",
+  "The modern solution to digital fragmentation.",
+  "Optimized for maximum binge-watching, minimum effort.",
+  "Your wallet's new best friend.",
+  "A tribute to the open (and slightly gray) web.",
+  "Premium aesthetics without the premium price tag."
 ];
 
 function TypewriterText({ text, delay = 0, speed = 30 }) {
@@ -151,48 +151,44 @@ export default function SarcasticWelcomeModal() {
 
         <div className="sw-scrollable-content">
           {/* Main sarcastic body */}
-          <div className="sw-body" style={{ marginBottom: "10px" }}>
-            <p className="sw-text" style={{ fontSize: "18px", fontWeight: "600", color: "var(--red)" }}>
-              Oh wow, you actually clicked on this. Bold move.
+          <div className="sw-body">
+            <p className="sw-text sw-highlight-text">
+              Welcome to the culmination of excessive free time and a refusal to pay for subscriptions.
             </p>
-            <p className="sw-text sw-text-dim" style={{ fontSize: "16px" }}>
-              This project crawls the deepest corners of the internet to scrape media links, compiling them into a surprisingly functional catalog. It then wraps everything in a UI so beautiful you'll completely forget you aren't paying a monthly subscription.
+            <p className="sw-text sw-text-dim">
+              This platform elegantly aggregates media from the wild west of the internet into a seamless, unified catalog. We took the liberty of wrapping it in a meticulously crafted interface, so you can enjoy premium aesthetics without the premium price tag.
             </p>
-            <p className="sw-text sw-text-dim" style={{ fontSize: "16px" }}>
-              Say goodbye to paying for 15 different streaming platforms. Say hello to pure, unfiltered entertainment.
+            <p className="sw-text sw-text-dim">
+              Consider it a masterclass in frontend engineering and digital resourcefulness. Enjoy the show.
             </p>
           </div>
 
           {/* Projects Grid */}
-          <h2 className="sw-projects-title">My Other Projects (That Mostly Work)</h2>
+          <h2 className="sw-projects-title">My Other Projects</h2>
           <div className="sw-projects-grid">
             <a href="https://docsmith-six.vercel.app/" target="_blank" rel="noreferrer" className="sw-project-link">
               <div className="sw-project-name"><span><DocumentIcon /></span> Docsmith</div>
-              <div className="sw-project-desc">A document editor for people who pretend to work.</div>
+              <div className="sw-project-desc">A refined document editor for serious professionals.</div>
             </a>
             <a href="https://animix-omega.vercel.app/" target="_blank" rel="noreferrer" className="sw-project-link">
               <div className="sw-project-name"><span><AnimeIcon /></span> Animix</div>
-              <div className="sw-project-desc">Like this app, but for anime. Weep for your bandwidth.</div>
+              <div className="sw-project-desc">A premium aggregator designed specifically for anime enthusiasts.</div>
             </a>
-            <a href="https://aio-inky.vercel.app/" target="_blank" rel="noreferrer" className="sw-project-link">
-              <div className="sw-project-name"><span><ToolIcon /></span> AIO</div>
-              <div className="sw-project-desc">An all-in-one tool for when you're too lazy to open tabs.</div>
+            <a href="https://bleu-portfolio.vercel.app/" target="_blank" rel="noreferrer" className="sw-project-link">
+              <div className="sw-project-name"><span><ToolIcon /></span> Portfolio</div>
+              <div className="sw-project-desc">My primary portfolio detailing professional work and capabilities.</div>
             </a>
             <a href="https://flux-state.vercel.app/" target="_blank" rel="noreferrer" className="sw-project-link">
               <div className="sw-project-name"><span><WavesIcon /></span> Flux</div>
-              <div className="sw-project-desc">Generate random things to manage your existential dread.</div>
-            </a>
-            <a href="https://halfthew0rldaway.github.io/utilify/" target="_blank" rel="noreferrer" className="sw-project-link">
-              <div className="sw-project-name"><span><UtilityIcon /></span> Utilify</div>
-              <div className="sw-project-desc">Utilities you could Google, wrapped in a shiny UI.</div>
+              <div className="sw-project-desc">A dynamic state-generation tool with seamless interactions.</div>
             </a>
             <a href="https://halfthew0rldaway.github.io/pomodoro/" target="_blank" rel="noreferrer" className="sw-project-link">
               <div className="sw-project-name"><span><TimerIcon /></span> Pomodoro</div>
-              <div className="sw-project-desc">A timer to guilt-trip you into studying for 25 minutes.</div>
+              <div className="sw-project-desc">A minimalist productivity timer for focused work sessions.</div>
             </a>
             <a href="https://halfthew0rldaway.github.io/kalkulatorkalori/" target="_blank" rel="noreferrer" className="sw-project-link">
               <div className="sw-project-name"><span><CalculatorIcon /></span> Kalori Calc</div>
-              <div className="sw-project-desc">Calculate calories so you feel bad about your snacks.</div>
+              <div className="sw-project-desc">A clean, efficient calculator for nutritional tracking.</div>
             </a>
           </div>
           
@@ -210,13 +206,13 @@ export default function SarcasticWelcomeModal() {
 
         {/* Dismiss button */}
         <button className="sw-cta" onClick={handleDismiss}>
-          <span className="sw-cta-text">I Accept My Free Entertainment</span>
+          <span className="sw-cta-text">Enter The Catalog</span>
           <span className="sw-cta-arrow">→</span>
         </button>
 
-        <p className="sw-footer-note" style={{ marginTop: "24px" }}>
+        <p className="sw-footer-note">
           No account needed. No credit card. No dignity required.<br/>
-          Crafted with immense sarcasm by <strong style={{ color: "var(--red)" }}>Wizzy</strong>.
+          Crafted with immense sarcasm by <strong className="sw-footer-name">Wizzy</strong>.
         </p>
       </div>
     </div>

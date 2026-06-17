@@ -128,12 +128,12 @@
 }
 
 .sw-title {
-  font-family: var(--font-display);
-  font-size: 36px;
-  font-weight: 700;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 32px;
+  font-weight: 800;
   color: var(--text);
   margin-bottom: 8px;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   display: flex;
   justify-content: center;
 }
@@ -158,12 +158,13 @@
 }
 
 .sw-tagline {
-  font-family: monospace;
-  font-size: 13px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
   color: var(--red);
   min-height: 20px;
   margin-bottom: 30px;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .sw-cursor {
@@ -175,19 +176,26 @@
 }
 
 .sw-body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 15px;
   line-height: 1.6;
   color: var(--text);
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .sw-text {
-  margin-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.sw-highlight-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--red);
 }
 
 .sw-text-dim {
   color: var(--text2);
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .sw-wink {
@@ -230,7 +238,7 @@
   border-radius: 8px;
   font-size: 15px;
   font-weight: 600;
-  font-family: var(--font-body);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -277,15 +285,21 @@
 }
 
 .sw-footer-note {
-  margin-top: 20px;
-  font-size: 11px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  margin-top: 24px;
+  font-size: 12px;
   color: var(--text3);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
+
+.sw-footer-name {
+  color: var(--red);
 }
 
 .sw-projects-title {
-  font-family: var(--font-display);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 18px;
   font-weight: 600;
   color: var(--text);
@@ -311,38 +325,53 @@
 }
 
 .sw-projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: row;
   gap: 16px;
   margin-bottom: 24px;
   text-align: left;
+  overflow-x: auto;
+  padding-bottom: 16px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sw-projects-grid::-webkit-scrollbar {
+  height: 6px;
+}
+
+.sw-projects-grid::-webkit-scrollbar-thumb {
+  background: rgba(229, 9, 20, 0.3);
+  border-radius: 6px;
 }
 
 @media (max-width: 768px) {
-  .sw-projects-grid {
-    grid-template-columns: 1fr;
+  .sw-project-link {
+    flex: 0 0 calc(85% - 16px);
   }
 }
 
 @media (min-width: 769px) {
-  .sw-project-link:last-child:nth-child(7) {
-    grid-column: 2 / 3;
+  .sw-project-link {
+    flex: 0 0 calc(33.333% - 11px);
   }
 }
 
 .sw-project-link {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
-  padding: 16px;
+  padding: 20px;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
-  height: 100%;
+  height: auto;
+  min-height: 120px;
+  scroll-snap-align: start;
 }
 
 .sw-project-link::before {
@@ -366,6 +395,7 @@
 }
 
 .sw-project-name {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: var(--text);
   font-weight: 700;
   font-size: 15px;
@@ -394,6 +424,7 @@
 }
 
 .sw-project-desc {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: var(--text2);
   font-size: 13px;
   line-height: 1.5;
