@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
 .sw-overlay {
   position: fixed;
   inset: 0;
@@ -128,12 +130,12 @@
 }
 
 .sw-title {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 32px;
-  font-weight: 800;
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  font-weight: 700;
   color: var(--text);
   margin-bottom: 8px;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
   display: flex;
   justify-content: center;
 }
@@ -158,13 +160,14 @@
 }
 
 .sw-tagline {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 14px;
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  font-size: 15px;
   font-weight: 500;
   color: var(--red);
   min-height: 20px;
   margin-bottom: 30px;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .sw-cursor {
@@ -176,9 +179,9 @@
 }
 
 .sw-body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.7;
   color: var(--text);
   margin-bottom: 40px;
 }
@@ -188,9 +191,12 @@
 }
 
 .sw-highlight-text {
-  font-size: 18px;
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-style: italic;
   font-weight: 600;
   color: var(--red);
+  letter-spacing: 0.5px;
 }
 
 .sw-text-dim {
@@ -217,7 +223,8 @@
 
 .sw-rotator-text {
   display: block;
-  font-size: 12px;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
   color: var(--text3);
   font-style: italic;
   animation: slideUpFade 4s infinite;
@@ -238,7 +245,7 @@
   border-radius: 8px;
   font-size: 15px;
   font-weight: 600;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -285,7 +292,7 @@
 }
 
 .sw-footer-note {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
   margin-top: 24px;
   font-size: 12px;
   color: var(--text3);
@@ -299,7 +306,7 @@
 }
 
 .sw-projects-title {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
   font-size: 18px;
   font-weight: 600;
   color: var(--text);
@@ -395,7 +402,7 @@
 }
 
 .sw-project-name {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
   color: var(--text);
   font-weight: 700;
   font-size: 15px;
@@ -424,7 +431,7 @@
 }
 
 .sw-project-desc {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
   color: var(--text2);
   font-size: 13px;
   line-height: 1.5;
