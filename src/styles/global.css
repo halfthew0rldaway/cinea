@@ -279,6 +279,7 @@ body,
 .main {
     margin-left: var(--sidebar);
     height: 100vh;
+    height: 100dvh;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -3806,6 +3807,7 @@ html[data-win-titlebar] .sidebar {
 html[data-win-titlebar] .main {
     margin-top: 32px;
     height: calc(100vh - 32px);
+    height: calc(100dvh - 32px);
 }
 
 html[data-win-titlebar][data-maximized] body {
@@ -3824,6 +3826,7 @@ html[data-win-titlebar][data-maximized] .main {
     margin-right: 8px;
     margin-bottom: 8px;
     height: calc(100vh - 64px);
+    height: calc(100dvh - 64px);
 }
 
 ::highlight(settings-search) {
@@ -3880,10 +3883,12 @@ html[data-win-titlebar][data-maximized] .main {
     .main {
         margin-left: 0;
         height: calc(100vh - 60px);
+        height: calc(100dvh - 60px);
         padding-bottom: 20px;
     }
     .hero {
         height: 50vh;
+        height: 50dvh;
         min-height: 350px;
     }
     .hero-content {
@@ -3913,6 +3918,7 @@ html[data-win-titlebar][data-maximized] .main {
     .detail-hero {
         height: auto;
         min-height: 50vh;
+        min-height: 50dvh;
     }
     .detail-content {
         flex-direction: column;
