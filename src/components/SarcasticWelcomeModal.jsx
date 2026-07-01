@@ -75,7 +75,9 @@ export default function SarcasticWelcomeModal() {
   const boxRef = useRef(null);
 
   useEffect(() => {
-    // Pop up on every refresh as requested
+    // Only pop up if the user hasn't seen it yet
+    if (storage.get("hasSeenWelcome")) return;
+    
     const t = setTimeout(() => {
       setPhase(1);
       setShow(true);
@@ -94,6 +96,7 @@ export default function SarcasticWelcomeModal() {
 
   const handleDismiss = () => {
     setPhase(2);
+    storage.set("hasSeenWelcome", true);
     setTimeout(() => {
       setShow(false);
     }, 500);
