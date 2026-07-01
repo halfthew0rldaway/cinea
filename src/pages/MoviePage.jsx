@@ -336,6 +336,26 @@ export default function MoviePage({
     resolvingUrlRef.current = true;
     setResolvingUrl(true);
     setResolveError(null);
+
+    // Web mode fallback
+    if (!window.electron) {
+      const next = getNextNonAsyncSource(playerSource);
+      if (next) {
+        setFailoverSource(epKey, next);
+        setM3u8Url(null);
+        setInterceptedSubs([]);
+        resolvedPlayerUrlRef.current = null;
+        setResolvedPlayerUrl(null);
+        setResolveError(null);
+        setPlayerSource(next);
+      } else {
+        setResolveError("This source requires the Streambert desktop app");
+      }
+      resolvingUrlRef.current = false;
+      setResolvingUrl(false);
+      return;
+    }
+
     const startTime = storage.get("dlTime_" + progressKey) || 0;
     let mounted = true;
     window.electron
