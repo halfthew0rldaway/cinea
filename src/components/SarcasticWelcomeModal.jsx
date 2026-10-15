@@ -1,28 +1,16 @@
 import { useState, useEffect, useRef } from "react";
 import { storage } from "../utils/storage";
-import { 
-  StreambertLogo, 
-  DocumentIcon, 
-  AnimeIcon, 
-  ToolIcon, 
-  WavesIcon, 
-  UtilityIcon, 
-  TimerIcon, 
-  CalculatorIcon 
-} from "./Icons";
+import { StreambertLogo } from "./Icons";
 import "../styles/sarcastic.css";
 
 const SARCASTIC_LINES = [
-  "Bypassing the friction of modern subscriptions.",
-  "Sleek UI. Questionable data origins.",
-  "Because 15 streaming services is a mathematical error.",
-  "We built a better interface than the people you're paying.",
-  "Aggregating the web's finest artifacts, highly efficiently.",
-  "The modern solution to digital fragmentation.",
-  "Optimized for maximum binge-watching, minimum effort.",
-  "Your wallet's new best friend.",
-  "A tribute to the open (and slightly gray) web.",
-  "Premium aesthetics without the premium price tag."
+  "Because having fifteen streaming subscriptions makes total sense.",
+  "Bypassing the friction of modern streaming.",
+  "Zero subscription tiers. Zero newsletter sign-ups.",
+  "No 30-second unskippable ads for car insurance.",
+  "Your wallet can take a well-deserved breather.",
+  "Aggregating the web so you don't have to.",
+  "Clean interface, straight to the point."
 ];
 
 function TypewriterText({ text, delay = 0, speed = 30 }) {
@@ -145,7 +133,7 @@ export default function SarcasticWelcomeModal() {
         <p className="sw-tagline">
           {phase === 1 && (
             <TypewriterText
-              text='"Your favorite morally-gray streaming catalog"'
+              text='"Because managing seven subscriptions was getting absurd."'
               delay={400}
               speed={35}
             />
@@ -153,51 +141,18 @@ export default function SarcasticWelcomeModal() {
         </p>
 
         <div className="sw-scrollable-content">
-          {/* Main sarcastic body */}
+          {/* Main welcoming body */}
           <div className="sw-body">
             <p className="sw-text sw-highlight-text">
-              Welcome to the culmination of excessive free time and a refusal to pay for subscriptions.
+              Welcome to the simpler side of streaming.
             </p>
             <p className="sw-text sw-text-dim">
-              This platform elegantly aggregates media from the wild west of the internet into a seamless, unified catalog. We took the liberty of wrapping it in a meticulously crafted interface, so you can enjoy premium aesthetics without the premium price tag.
+              A clean catalog to browse and watch your favorite movies and shows—without paywalls, account requirements, or endless subscription tiers.
             </p>
             <p className="sw-text sw-text-dim">
-              Consider it a masterclass in frontend engineering and digital resourcefulness. Enjoy the show.
+              Everything is aggregated in one responsive interface so you can spend less time searching and more time actually watching.
             </p>
           </div>
-
-          {/* Projects Grid */}
-          <h2 className="sw-projects-title">My Other Projects</h2>
-          <div className="sw-projects-grid">
-            <a href="https://docsmith-six.vercel.app/" target="_blank" rel="noreferrer" className="sw-project-link">
-              <div className="sw-project-name"><span><DocumentIcon /></span> Docsmith</div>
-              <div className="sw-project-desc">A refined document editor for serious professionals.</div>
-            </a>
-            <a href="https://animix-omega.vercel.app/" target="_blank" rel="noreferrer" className="sw-project-link">
-              <div className="sw-project-name"><span><AnimeIcon /></span> Animix</div>
-              <div className="sw-project-desc">A premium aggregator designed specifically for anime enthusiasts.</div>
-            </a>
-            <a href="https://bleu-portfolio.vercel.app/" target="_blank" rel="noreferrer" className="sw-project-link">
-              <div className="sw-project-name"><span><ToolIcon /></span> Portfolio</div>
-              <div className="sw-project-desc">My primary portfolio detailing professional work and capabilities.</div>
-            </a>
-            <a href="https://flux-state.vercel.app/" target="_blank" rel="noreferrer" className="sw-project-link">
-              <div className="sw-project-name"><span><WavesIcon /></span> Flux</div>
-              <div className="sw-project-desc">A dynamic state-generation tool with seamless interactions.</div>
-            </a>
-            <a href="https://halfthew0rldaway.github.io/pomodoro/" target="_blank" rel="noreferrer" className="sw-project-link">
-              <div className="sw-project-name"><span><TimerIcon /></span> Pomodoro</div>
-              <div className="sw-project-desc">A minimalist productivity timer for focused work sessions.</div>
-            </a>
-            <a href="https://halfthew0rldaway.github.io/kalkulatorkalori/" target="_blank" rel="noreferrer" className="sw-project-link">
-              <div className="sw-project-name"><span><CalculatorIcon /></span> Kalori Calc</div>
-              <div className="sw-project-desc">A clean, efficient calculator for nutritional tracking.</div>
-            </a>
-          </div>
-          
-          <a href="https://github.com/halfthew0rldaway" target="_blank" rel="noreferrer" className="sw-github-link">
-            Explore more questionable code on GitHub ↗
-          </a>
 
           {/* Rotating sarcastic footer line */}
           <div className="sw-rotator">
@@ -214,8 +169,8 @@ export default function SarcasticWelcomeModal() {
         </button>
 
         <p className="sw-footer-note">
-          No account needed. No credit card. No dignity required.<br/>
-          Crafted with immense sarcasm by <strong className="sw-footer-name">Wizzy</strong>.
+          No account needed • No credit card required<br/>
+          Crafted by <strong className="sw-footer-name">Wizzy</strong>
         </p>
       </div>
     </div>
